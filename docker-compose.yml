@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # MongoDB Service
+  mongodb:
+    build: ./MongoDB
+    container_name: pharmavida_mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pharmavida123
+      MONGO_INITDB_DATABASE: pharmavida_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - PharmaVida
+    restart: unless-stopped
+
+  # MySQL Service
+  mysql:
+    build: ./MySQL
+    container_name: pharmavida_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pharmavida123
+      MYSQL_DATABASE: pharmavida_db
+      MYSQL_USER: pharmavida_user
+      MYSQL_PASSWORD: pharmavida123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - PharmaVida
+    restart: unless-stopped
+
+  # PostgreSQL Service
+  postgresql:
+    build: ./PostgresSQL
+    container_name: pharmavida_postgresql
+    environment:
+      POSTGRES_DB: pharmavida_db
+      POSTGRES_USER: pharmavida_user
+      POSTGRES_PASSWORD: pharmavida123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    networks:
+      - PharmaVida
+    restart: unless-stopped
+
+  # Adminer Service
+  adminer:
+    image: adminer:latest
+    container_name: pharmavida_adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - PharmaVida
+    depends_on:
+      - mongodb
+      - mysql
+      - postgresql
+    restart: unless-stopped
+
+# Volumes
+volumes:
+  mongodb_data:
+    driver: local
+  mysql_data:
+    driver: local
+  postgresql_data:
+    driver: local
+
+# Networks
+networks:
+  PharmaVida:
+    driver: bridge
