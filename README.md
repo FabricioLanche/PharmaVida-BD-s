@@ -36,7 +36,7 @@ Abrir navegador en: `http://localhost:8080`
 - **Usuario**: `admin`
 - **Contraseña**: `pharmavida123`
 - **Base de datos**: `pharmavida_db`
-- **Puerto**: 27017
+- **Puerto**: 27018
 
 *Nota: Para MongoDB en Adminer, es posible que necesites usar una herramienta específica como MongoDB Compass*
 
@@ -46,7 +46,7 @@ Abrir navegador en: `http://localhost:8080`
 - **Usuario**: `pharmavida_user`
 - **Contraseña**: `pharmavida123`
 - **Base de datos**: `pharmavida_db`
-- **Puerto**: 3306
+- **Puerto**: 3307
 
 **Credenciales alternativas de root:**
 - **Usuario**: `root`
@@ -58,15 +58,15 @@ Abrir navegador en: `http://localhost:8080`
 - **Usuario**: `pharmavida_user`
 - **Contraseña**: `pharmavida123`
 - **Base de datos**: `pharmavida_db`
-- **Puerto**: 5432
+- **Puerto**: 5433
 
 ## Conexiones Directas (desde host)
 
 Si quieres conectarte directamente desde tu máquina local:
 
-- **MongoDB**: `mongodb://admin:pharmavida123@localhost:27017/pharmavida_db`
-- **MySQL**: `mysql://pharmavida_user:pharmavida123@localhost:3306/pharmavida_db`
-- **PostgreSQL**: `postgresql://pharmavida_user:pharmavida123@localhost:5432/pharmavida_db`
+- **MongoDB**: `mongodb://admin:pharmavida123@localhost:27018/pharmavida_db`
+- **MySQL**: `mysql://pharmavida_user:pharmavida123@localhost:3307/pharmavida_db`
+- **PostgreSQL**: `postgresql://pharmavida_user:pharmavida123@localhost:5433/pharmavida_db`
 
 ## Comandos Útiles
 

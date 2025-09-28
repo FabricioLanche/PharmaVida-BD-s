@@ -1,9 +1,9 @@
-# MySQL Dockerfile
-FROM mysql:8.0
+# PostgreSQL Dockerfile
+FROM postgres:15
 
-# Configurar el conjunto de caracteres por defecto
-ENV MYSQL_CHARSET=utf8mb4
-ENV MYSQL_COLLATION=utf8mb4_unicode_ci
+# Configurar localización
+ENV POSTGRES_LOCALE=en_US.utf8
+ENV POSTGRES_ENCODING=UTF8
 
-# Exponer el puerto por defecto de MySQL
-EXPOSE 3306
+# Exponer el puerto por defecto de PostgreSQL
+EXPOSE 5432
