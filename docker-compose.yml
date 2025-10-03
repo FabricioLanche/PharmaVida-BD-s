@@ -50,19 +50,16 @@ services:
       - PharmaVida
     restart: unless-stopped
 
-  # Mongo Express Service
-  mongo-express:
-    image: mongo-express:latest
-    container_name: pharmavida_mongo_express
+  # AdminMongo Service (reemplaza Mongo Express)
+  adminmongo:
+    image: mrvautin/adminmongo:latest
+    container_name: pharmavida_adminmongo
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
-      ME_CONFIG_MONGODB_ADMINPASSWORD: pharmavida123
-      ME_CONFIG_MONGODB_URL: mongodb://admin:pharmavida123@mongodb:27017/
-      ME_CONFIG_MONGODB_SERVER: mongodb
-      ME_CONFIG_BASICAUTH_USERNAME: admin
-      ME_CONFIG_BASICAUTH_PASSWORD: pharmavida123
+      AM_MONGO_HOSTS: mongodb:27017
+      AM_MONGO_USERNAME: admin
+      AM_MONGO_PASSWORD: pharmavida123
     ports:
-      - "8081:8081"
+      - "8081:1234"
     networks:
       - PharmaVida
     depends_on:
